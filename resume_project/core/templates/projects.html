@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+{% load static %}
+<h1 class="py-4">Upcoming...</h1>
+<div class="jumbotron">
+    <div class="d-flex">
+        <div class="flex-fill w-50 px-2">
+            <h2>Hollow Knight Mod</h2>
+            <p>Hollow Knight is one of my absolute favorite games of all time.</p>
+            <p>Mods have been my go to for making this game as replayable as possible.</p>
+            <p>They are also very widely accessible and range from grass cutting calculators, 
+               to randomizing the entire map for a whole new experience.</p>
+            <p>My next project is going to be to make a mod for Hollow Knight 
+               to show my ability to make enhancements to pre-existing codebases.</p>
+        </div>
+        <img src="{% static 'hollowknight.jpg' %}" class="rounded img-fluid w-50 h-50" alt="Photo of Hollow Knight">
+    </div>
+</div>
+<h1 class="pt-4">Projects</h1>
+<div class="d-flex py-4">
+    {% for project in projects %}
+        {% include "project_card.html" with project=project %}
+    {% endfor %}
+</div>
+{% endblock %}

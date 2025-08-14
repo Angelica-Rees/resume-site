@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="pt-4">Jobs</h1>
+        {% for job in jobs %}
+        <h4>{{ job.title }} | <small>{{ job.company }}</small></h4>
+        <h5>{{ job.date_started }} - {{ job.date_ended|default:"present" }}</h5>
+            <ul>
+                {% for item in job.descriptionitem_set.all %}
+                <li class="d-flex justify-content-between pt-2">
+                    {{ item.title }}
+                </li>
+            {% endfor %}
+            </ul>
+        {% endfor %}
+{% endblock %}
