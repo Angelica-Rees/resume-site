@@ -1,25 +1,29 @@
 {% extends "base.html" %} {% block content %}
 {% load static %}
-<h1 class="py-4">Upcoming...</h1>
+<h1 class="row py-3 px-3">Upcoming...</h1>
 <div class="jumbotron">
-    <div class="d-flex">
-        <div class="flex-fill w-50 px-2">
+    <div class="row">
+        <div class="col px-3">
             <h2>Hollow Knight Mod</h2>
             <p>Hollow Knight is one of my absolute favorite games of all time.</p>
             <p>Mods have been my go to for making this game as replayable as possible.</p>
-            <p>They are also very widely accessible and range from grass cutting calculators, 
-               to randomizing the entire map for a whole new experience.</p>
-            <p>My next project is going to be to make a mod for Hollow Knight 
-               to show my ability to make enhancements to pre-existing codebases.</p>
+            <p>They are also very widely accessible and range from grass cutting calculators,
+                to randomizing the entire map for a whole new experience.</p>
+            <p>My next project is going to be to make a mod for Hollow Knight
+                to show my ability to make enhancements to pre-existing codebases.</p>
         </div>
-        <img src="{% static 'hollowknight.jpg' %}" class="rounded img-fluid w-50 h-50" alt="Photo of Hollow Knight">
+        <div class="col-md">
+            <img src="{% static 'hollowknight.jpg' %}" class="rounded img-fluid" alt="Photo of Hollow Knight">
+        </div>
     </div>
 </div>
-<h1 class="pt-4">Projects</h1>
-<div class="d-flex py-4">
+<h1 class="row py-3 px-3">Projects</h1>
+<div class="row py-3 px-3">
     {% for project in projects %}
+    <div class="col-sm">
         {% include "project_card.html" with project=project %}
+    </div>
     {% endfor %}
 </div>
-<h3 class="py-2">See more in my <a href="https://github.com/Angelica-Rees">Github</a></h3>
+<h3 class="py-3 px-3">See more in my <a href="https://github.com/Angelica-Rees">Github</a></h3>
 {% endblock %}

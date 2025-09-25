@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block content %}
 {% load static %}
-<div class="d-flex align-content-center p-4">
-    <div class="flex-fill align-content-center w-50">
+<div class="row align-items-center py-3 px-lg-5">
+    <div class="col-md">
         <h1>
             Hello, I'm Angelica
         </h1>
@@ -10,15 +10,17 @@
             This is my resume website, feel free to click around!
         </h2>
     </div>
-    <img src="{% static 'IMG-0520.PNG' %}" class="rounded img-fluid w-50" alt="Photo of Angelica Rees">
-</div>
-<div class="py-2">
-    <a href="{% url 'projects' %}" class="h1 text-dark text-decoration-none">Projects</a>
-    <div class="d-flex py-4">
-        {% for project in projects %}
-            {% include "project_card.html" with project=project %}
-        {% endfor %}
+    <div class="col-md">
+        <img src="{% static 'IMG-0520.PNG' %}" class="rounded img-fluid" alt="Photo of Angelica Rees">
     </div>
 </div>
-{% endblock %}
+<a href="{% url 'projects' %}" class="row h1 text-dark text-decoration-none py-3 px-3">Projects</a>
+<div class="row py-3 px-3">
+    {% for project in projects %}
+    <div class="col-sm">
+        {% include "project_card.html" with project=project %}
+    </div>
+    {% endfor %}
+</div>
 
+{% endblock %}
