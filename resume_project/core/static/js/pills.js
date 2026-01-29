@@ -36,6 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (matchesAll) {
                 card.classList.add("highlight");
                 card.classList.remove("dimmed");
+                pills.forEach(function (p) {
+                    p.disabled = false});
 
                 // Only highlight pills inside this card that are active
                 pills.forEach(p => {
