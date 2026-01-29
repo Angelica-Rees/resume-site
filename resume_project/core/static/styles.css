@@ -1,0 +1,316 @@
+* {
+  font-family: "Georgia","serif"
+  /* "Inter", "Segoe UI", */
+    /* "Helvetica Neue", Arial, sans-serif; */
+ /* "Comfortaa", sans-serif;  */
+}
+
+/* -------------------------
+   Design Tokens
+-------------------------- */
+:root {
+  /* Backgrounds */
+  --bg-main: #faf9f7;
+  --bg-card: #ffffff;
+
+  /* Text */
+  --text-main: #1f2933;
+  --text-muted: #6b7280;
+
+  /* Accent */
+  --accent: #c47a4a;
+  --accent-hover: #b46a3b;
+
+  /* Borders */
+  --border-soft: #e5e7eb;
+  --border-accent: #e5d4c7;
+
+}
+
+/* -------------------------
+   Global Styles
+-------------------------- */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.65;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: none;
+}
+
+li::marker {
+  color: var(--accent);
+}
+
+/* -------------------------
+   Typography
+-------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+p {
+  color: var(--text-main);
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* -------------------------
+   Navbar
+-------------------------- */
+.navbar {
+  background-color: var(--bg-main);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.navbar-brand {
+  font-weight: 600;
+}
+
+.nav-link {
+  color: var(--text-main) !important;
+  margin-left: 0.75rem;
+}
+
+.nav-link:hover {
+  color: var(--accent) !important;
+}
+
+/* -------------------------
+   Cards
+-------------------------- */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+}
+
+.card + .card {
+  margin-top: 1.5rem;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.card-title {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-text {
+  opacity: 0.85;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* -------------------------
+   Buttons
+-------------------------- */
+.btn {
+  border-radius: 0.375rem;
+  font-weight: 500;
+  padding: 12px 28px;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.btn-outline-primary {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+.btn-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+[id^="orbitCanvas"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+[id^="orbitButton"] {
+  position: relative;
+  z-index: 1;
+  padding: 12px 28px;
+  border: none;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[id^="orbitButton"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45);
+}
+
+/* -------------------------
+   Project Cards -- not used yet
+-------------------------- */
+.project-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.06);
+}
+
+
+/* -------------------------
+   Three.js Canvas Wrapper -- not used yet
+-------------------------- */
+.canvas-card {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  background-color: #fdfdfc;
+}
+
+/* -------------------------
+   Forms (Contact Page)
+-------------------------- */
+.form-control {
+  border-radius: 10px;
+  border: 1px solid var(--border-soft);
+  padding: 0.6rem 0.75rem;
+}
+
+.form-control:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.15rem rgba(196, 122, 74, 0.25);
+}
+
+/* -------------------------
+   Footer
+-------------------------- */
+footer {
+  border-top: 1px solid var(--border-soft);
+  padding: 2rem 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* -------------------------
+   Utility Helpers
+-------------------------- */
+.soft-divider {
+  height: 1px;
+  background-color: var(--border-accent);
+  margin: 3rem 0;
+  opacity: 0.4;
+}
+
+/* -------------------------
+   Job Cards
+-------------------------- */
+.job-card {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.job-card.dimmed {
+  opacity: 0.35;
+}
+
+.job-card.highlight {
+  opacity: 1;
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* -------------------------
+   Tech Stack Pills
+-------------------------- */
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.75rem;
+  margin: 0.25rem 0.5rem;
+  border-radius: 0.375rem; /* same as .btn */
+  font-weight: 500;
+  font-size: 0.875rem; /* slightly smaller than buttons for distinction */
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.tag-pill:hover {
+  background-color: var(--accent-hover);
+  color: #ffffff;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.tag-pill.active {
+  background-color: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.tag-pill:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+
+
