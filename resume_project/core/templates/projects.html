@@ -1,23 +1,14 @@
 {% extends "base.html" %} {% block content %}
 {% load static %}
-<h1 class="row py-3 px-3">Upcoming...</h1>
-<div class="jumbotron">
-    <div class="row">
-        <div class="col px-3">
-            <h2>Hollow Knight Mod</h2>
-            <p>Hollow Knight is one of my absolute favorite games of all time.</p>
-            <p>Mods have been my go to for making this game as replayable as possible.</p>
-            <p>They are also very widely accessible and range from grass cutting calculators,
-                to randomizing the entire map for a whole new experience.</p>
-            <p>My next project is going to be to make a mod for Hollow Knight
-                to show my ability to make enhancements to pre-existing codebases.</p>
-        </div>
-        <div class="col-md">
-            <img src="{% static 'hollowknight.jpg' %}" class="rounded img-fluid" alt="Photo of Hollow Knight">
-        </div>
+
+<div class="row py-3 px-3 text-center justify-content-center">
+    <hr class="col-2 soft-divider">
+    <div class="col-2 align-self-center">
+        <h4>Projects</h4>
     </div>
+    <hr class="col-2 soft-divider">
 </div>
-<h1 class="row py-3 px-3">Projects</h1>
+
 <div class="row py-3 px-3">
     {% for project in projects %}
     <div class="col-sm">
@@ -25,5 +16,7 @@
     </div>
     {% endfor %}
 </div>
+
 <h3 class="py-3 px-3">See more in my <a href="https://github.com/Angelica-Rees">Github</a></h3>
+<script src="{% static 'js/carousel.js' %}"></script>
 {% endblock %}

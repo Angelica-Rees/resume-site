@@ -1,5 +1,12 @@
-<div class="card p-4 mx-2 justify-content-between">
-   <h3 class="card-title">{{ project.title }}</h3>
+<div class="card h-100 p-4 mx-2 justify-content-between">
+   <div class="row">
+      <h3 class="card-title col">{{ project.title }}</h3>
+      <a href="{{ project.github_link }}" target="_blank" class="px-2 col-2">
+         <i class="fab fa-github fa-2x"></i>
+      </a>
+   </div>
+
    <p class="card-text flex-fill">{{ project.description }}</p>
-   <a href="{{ project.github_link }}" class="btn btn-primary stretched-link" target="_blank">See Project</a>
+
+
 </div>

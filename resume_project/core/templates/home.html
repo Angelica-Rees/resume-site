@@ -1,26 +1,125 @@
 {% extends "base.html" %} {% block content %}
 {% load static %}
 <div class="row align-items-center py-3 px-lg-5">
-    <div class="col-md">
-        <h1>
-            Hello, I'm Angelica
-        </h1>
+    <div class="col-8 d-flex flex-column">
+        <h1>Hello, I'm Angelica</h1>
         <h2>
-            I'm a software developer and lifelong learner.
-            This is my resume website, feel free to click around!
+            I build software with a focus on clean design and real usability
         </h2>
+        <p>
+            I am a software developer and lifelong learner with experience building full-stack applications. This is my
+            resume website (built completely from scratch with Django). Feel free to click around!
+        </p>
+        <div class="row py-3">
+            <div class="btn-wrapper py-3 px-3">
+                <canvas id="orbitCanvas1"></canvas>
+                <a href="{% url 'projects' %}" class="btn btn-primary" id="orbitButton1">View Projects</a>
+            </div>
+            <div class="py-3 px-3">
+                <a href="#" class="btn">Download Resume</a>
+            </div>
+        </div>
+
     </div>
-    <div class="col-md">
-        <img src="{% static 'IMG-0520.PNG' %}" class="rounded img-fluid" alt="Photo of Angelica Rees">
+
+    <div class="col-2 text-center">
+        <img src="{% static 'IMG-0520.PNG' %}" class="rounded-circle my-5"
+            style="overflow: hidden; height: 300px; width: 300px; object-fit: cover;object-position: top;"
+            alt="Photo of Angelica Rees">
     </div>
-</div>
-<a href="{% url 'projects' %}" class="row h1 text-dark text-decoration-none py-3 px-3">Projects</a>
-<div class="row py-3 px-3">
-    {% for project in projects %}
-    <div class="col-sm">
-        {% include "project_card.html" with project=project %}
-    </div>
-    {% endfor %}
 </div>
 
+<hr class="soft-divider">
+
+<div class="row py-3 px-3 text-center justify-content-center">
+    <hr class="col-2 soft-divider">
+    <div class="col-2 align-self-center">
+        <h4>What I Do</h4>
+    </div>
+    <hr class="col-2 soft-divider">
+</div>
+
+<div class="row py-3 px-3">
+    <div class="col-sm">
+        <!-- Can be made into a new database for these cards if I don't want to explicitly put each but for now this is how it is -->
+        <!-- Can also be made into a seperate card html component if I'm gonna use this elsewhere -->
+        <div class="card h-100 p-4 mx-2 justify-content-between">
+            <h3 class="card-title">Software Development</h3>
+            <p class="card-text flex-fill">Designing, developing, and maintaining applications with clean architecture
+                and readable code.</p>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="card h-100 p-4 mx-2 justify-content-between">
+            <h3 class="card-title">Problem Solving</h3>
+            <p class="card-text flex-fill">Breaking down ambiguous problems into digestable action items and testing and
+                redesigning as the problem evolves.</p>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="card h-100 p-4 mx-2 justify-content-between">
+            <h3 class="card-title">Interactive & Creative Projects</h3>
+            <p class="card-text flex-fill">Experience creating things from scratch, like this website, my three.js demo,
+                and crochet items I make for my etsy: <a href="https://angelsloops.etsy.com">angelsloops.etsy.com</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<hr class="soft-divider">
+
+<div class="row align-items-center py-5 px-lg-5">
+    <div class="col">
+        <img src="{% static 'Robot-Blender.PNG' %}" class="img-fluid rounded" alt="Photo of Robot Three.js ">
+    </div>
+
+    <div class="col-6 d-flex flex-column">
+        <h2>Three.js Exploration Demo</h2>
+        <p>
+            An interactive three.js project where you control a small robot to explore a small 3D environment.
+            This is my favorite project that I've built.
+            Explore the world to find more details about me.
+        </p>
+        <div class="row py-3">
+            <div class="btn-wrapper py-3 px-3">
+                <canvas id="orbitCanvas3"></canvas>
+                <a href="#" class="btn btn-primary" id="orbitButton3">View Demo</a>
+            </div>
+            <div class="py-3 px-3">
+                <a href="https://github.com/Angelica-Rees" target="_blank" class="btn">View Code</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<hr class="soft-divider">
+
+<div class="row py-3 px-3 text-center">
+    <div class="col-sm align-self-center">
+        <h4>Professional Experience</h4>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-6 align-self-center">
+        <ul>
+            <li>Experience with real-world applications</li>
+            <li>Collaboration with cross-functional teams</li>
+            <li>Exposure to the full software development cycle in a legacy codebase</li>
+        </ul>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-6 d-flex justify-content-center">
+        <div class="py-3 px-3">
+            <a href="{% url 'jobs' %}" class="btn">View Full Experience</a>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{% static 'js/particles.js' %}"></script>
 {% endblock %}

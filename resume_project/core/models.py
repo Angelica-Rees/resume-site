@@ -8,6 +8,10 @@ class Job(models.Model):
     date_started = models.DateField(null=False)
     date_ended = models.DateField(null=True, blank=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True)
+    current = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-current', '-date_started']
 
     def __str__(self):
         return f"{self.title}"
@@ -20,6 +24,19 @@ class DescriptionItem(models.Model):
 
     def __str__(self):
         return f"{self.title}"
+    
+class SkillItem(models.Model):
+    title = models.CharField()
+    jobs = models.ManyToManyField(
+        Job,
+        related_name="skills",
+        blank=True
+    )
+    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True)
+
+    def __str__(self):
+        return f"{self.title}"
+
 
 
 class Project(models.Model):
