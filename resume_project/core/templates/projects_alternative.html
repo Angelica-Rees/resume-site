@@ -68,9 +68,12 @@
 
                     <!-- Technology Tags (if you add them later) -->
                     <div class="project-tags mt-3">
-                        <!-- Placeholder tags - can be dynamically added later -->
-                        <span class="project-tag">Django</span>
-                        <span class="project-tag">JavaScript</span>
+                        {% for skill in project.skills.all|dictsort:"title" %}
+                        <button class="tech-pill tag-pill btn btn-sm" type="button"
+                            data-tag="{{ skill.title|slugify }}">
+                            {{ skill.title }}
+                        </button>
+                        {% endfor %}
                     </div>
                 </div>
 
