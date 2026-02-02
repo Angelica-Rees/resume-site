@@ -357,7 +357,8 @@ footer {
   border: 1px solid var(--border-soft);
   transition: all 0.3s ease;
   overflow: hidden;
-  height: 100%;
+  height: auto;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
 }
@@ -491,6 +492,88 @@ footer {
   .project-preview-card {
     margin-top: 2rem;
   }
+}
+
+/* -------------------------
+   Carousel Styles
+-------------------------- */
+
+/* Outer wrapper - sleek design without nav buttons */
+.carousel-wrapper {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Carousel container - viewport with overflow hidden */
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Carousel track - container for cards */
+.carousel-track {
+  position: relative;
+  min-height: 450px; /* Card min-height (450px) */
+  padding: 3rem 0 1rem 0;
+}
+
+/* Individual carousel card wrapper */
+.carousel-card {
+  position: absolute;
+  width: 400px;
+  max-width: 400px;
+  left: 0;
+  top: 0;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease,
+              z-index 0s;
+  transform-origin: center center;
+}
+
+/* No transition for cards appearing from off-screen */
+.carousel-card.no-transition {
+  transition: none;
+}
+
+/* Disable hover effects during carousel transition */
+.carousel-track.transitioning .project-overlay {
+  pointer-events: none;
+  opacity: 0 !important;
+}
+
+/* Side cards - clickable */
+.carousel-card.side {
+  cursor: pointer;
+  /* Transform, opacity, and z-index are set via JS */
+}
+
+/* Side cards have subtle hover effect to indicate clickability */
+.carousel-card.side:hover {
+  /* Slightly increase opacity on hover - override JS opacity */
+  opacity: 0.7 !important;
+}
+
+/* Adjust project cards for carousel */
+.carousel-card .project-card-alt {
+  width: 100%;
+  height: auto;
+  min-height: 450px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .carousel-wrapper { padding: 2rem 1rem; }
+  .carousel-card { width: 300px; max-width: 300px; }
+  .carousel-track { min-height: 490px; padding: 2.5rem 0 1rem 0; }
+}
+
+@media (max-width: 576px) {
+  .carousel-wrapper { padding: 2rem 0.5rem; }
+  .carousel-card { width: 280px; max-width: 280px; }
+  .carousel-track { min-height: 470px; padding: 2rem 0 1rem 0; }
 }
 
 
