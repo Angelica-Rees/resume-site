@@ -17,16 +17,31 @@ function initializeButtonAnimation(canvasId, buttonId) {
   let lastTime = 0;
 
   function resizeCanvas() {
-    // Canvas fills the parent container
-    const rect = container.getBoundingClientRect();
+    // Get button dimensions
+    const btnRect = button.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
 
-    canvas.style.width = rect.width + 'px';
-    canvas.style.height = rect.height + 'px';
+    // Make canvas larger than button to accommodate particle orbits
+    // Use 3x the button size or minimum 400px
+    const canvasSize = Math.max(Math.max(btnRect.width, btnRect.height) * 3, 400);
+
+    // Set canvas display size
+    canvas.style.width = canvasSize + 'px';
+    canvas.style.height = canvasSize + 'px';
+
+    // Position canvas centered on button
+    // Calculate button center relative to container
+    const buttonCenterX = btnRect.left - containerRect.left + (btnRect.width / 2);
+    const buttonCenterY = btnRect.top - containerRect.top + (btnRect.height / 2);
+
+    // Offset canvas so its center aligns with button center
+    canvas.style.left = (buttonCenterX - canvasSize / 2) + 'px';
+    canvas.style.top = (buttonCenterY - canvasSize / 2) + 'px';
 
     // High-DPI scaling
     const dpr = window.devicePixelRatio || 1;
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
+    canvas.width = canvasSize * dpr;
+    canvas.height = canvasSize * dpr;
 
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(dpr, dpr);
@@ -73,12 +88,12 @@ function initializeButtonAnimation(canvasId, buttonId) {
   function createParticles() {
     particles = [];
 
-    const containerRect = container.getBoundingClientRect();
     const btnRect = button.getBoundingClientRect();
 
-    // Calculate button center relative to container
-    const centerX = (btnRect.left - containerRect.left) + (btnRect.width / 2);
-    const centerY = (btnRect.top - containerRect.top) + (btnRect.height / 2);
+    // Canvas is centered on button, so particles orbit around canvas center
+    const canvasSize = Math.max(Math.max(btnRect.width, btnRect.height) * 3, 400);
+    const centerX = canvasSize / 2;
+    const centerY = canvasSize / 2;
 
     const numRings = 3;
     const particlesPerRing = 16;
