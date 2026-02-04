@@ -1,8 +1,8 @@
 * {
-  font-family: "Georgia","serif"
-  /* "Inter", "Segoe UI", */
+  font-family: "Georgia", "serif"
+    /* "Inter", "Segoe UI", */
     /* "Helvetica Neue", Arial, sans-serif; */
- /* "Comfortaa", sans-serif;  */
+    /* "Comfortaa", sans-serif;  */
 }
 
 /* -------------------------
@@ -102,7 +102,7 @@ p {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
 }
 
-.card + .card {
+.card+.card {
   margin-top: 1.5rem;
 }
 
@@ -268,7 +268,7 @@ footer {
 .job-card.highlight {
   opacity: 1;
   transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* -------------------------
@@ -281,9 +281,11 @@ footer {
   justify-content: center;
   padding: 0.35rem 0.75rem;
   margin: 0.25rem 0.5rem;
-  border-radius: 0.375rem; /* same as .btn */
+  border-radius: 0.375rem;
+  /* same as .btn */
   font-weight: 500;
-  font-size: 0.875rem; /* slightly smaller than buttons for distinction */
+  font-size: 0.875rem;
+  /* slightly smaller than buttons for distinction */
   border: 1px solid var(--accent);
   color: var(--accent);
   background-color: #ffffff;
@@ -516,7 +518,8 @@ footer {
 /* Carousel track - container for cards */
 .carousel-track {
   position: relative;
-  min-height: 450px; /* Card min-height (450px) */
+  min-height: 450px;
+  /* Card min-height (450px) */
   padding: 3rem 0 1rem 0;
 }
 
@@ -528,8 +531,8 @@ footer {
   left: 0;
   top: 0;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.3s ease,
-              z-index 0s;
+    opacity 0.3s ease,
+    z-index 0s;
   transform-origin: center center;
 }
 
@@ -565,15 +568,95 @@ footer {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-  .carousel-wrapper { padding: 2rem 1rem; }
-  .carousel-card { width: 300px; max-width: 300px; }
-  .carousel-track { min-height: 490px; padding: 2.5rem 0 1rem 0; }
+  .carousel-wrapper {
+    padding: 2rem 1rem;
+  }
+
+  .carousel-card {
+    width: 300px;
+    max-width: 300px;
+  }
+
+  .carousel-track {
+    min-height: 490px;
+    padding: 2.5rem 0 1rem 0;
+  }
 }
 
 @media (max-width: 576px) {
-  .carousel-wrapper { padding: 2rem 0.5rem; }
-  .carousel-card { width: 280px; max-width: 280px; }
-  .carousel-track { min-height: 470px; padding: 2rem 0 1rem 0; }
+  .carousel-wrapper {
+    padding: 2rem 0.5rem;
+  }
+
+  .carousel-card {
+    width: 280px;
+    max-width: 280px;
+  }
+
+  .carousel-track {
+    min-height: 470px;
+    padding: 2rem 0 1rem 0;
+  }
 }
 
+/* Contact form stuff */
 
+.contact-form-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.75rem;
+}
+
+.contact-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  background: var(--bg-main);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 1.25rem;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.contact-social-item:hover .contact-icon-wrapper {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.contact-input {
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-soft);
+  background: var(--bg-main);
+  transition: all 0.2s ease;
+}
+
+.contact-input:focus {
+  background: var(--bg-card);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(196, 122, 74, 0.15);
+  outline: none;
+}
+
+.contact-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+textarea.contact-input {
+  resize: vertical;
+  min-height: 150px;
+}

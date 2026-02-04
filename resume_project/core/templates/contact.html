@@ -1,12 +1,105 @@
 {% extends "base.html" %} {% block content %}
-<div class="container">
-    <div>
-        <h3 class="text-center">
-            Feel free to reach out to me via email at <a href="mailto:angelkdrees@gmail.com">Angelkdrees@gmail.com</a>
-        </h3>
-        <h4 class="text-center">
-            Or connect with me on <a href="https://www.linkedin.com/in/angelica-rees/">Linkedin</a>
-        </h4>
+{% load static %}
+
+<!-- Page Header -->
+<div class="row py-5 text-center">
+    <div class="col-12">
+        <h1>Let's Connect</h1>
+        <p class="text-muted" style="max-width: 500px; margin: 0 auto;">
+            Have a question, want to collaborate, or just want to say hi? I'd love to hear from you.
+        </p>
     </div>
 </div>
+
+<hr class="soft-divider" style="margin-top: 0;">
+
+{% if is_sent %}
+<div class="row py-5 text-center">
+    <div class="col-12">
+        <p class="text-muted" style="max-width: 500px; margin: 0 auto;">
+            Your message has been sent and we'll be in touch soon
+        </p>
+    </div>
+</div>
+{% endif %}
+
+<!-- Contact Section -->
+<div class="row justify-content-center py-4">
+
+    <!-- Left Column - Alternative Contact -->
+    <div class="col-md-4 mb-4 mb-md-0">
+        <div class="card h-100 p-4">
+            <h4 style="margin-bottom: 1.5rem;">Prefer something else?</h4>
+            <p class="text-muted" style="margin-bottom: 2rem;">
+                Feel free to reach out through any of these platforms instead.
+            </p>
+
+            <!-- Social Links -->
+            <div class="contact-social-item mb-3">
+                <a href="https://www.linkedin.com/in/angelica-rees/" target="_blank" class="d-flex align-items-center"
+                    style="text-decoration: none;">
+                    <div class="contact-icon-wrapper">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="ms-3" style="margin-left: 1rem;">
+                        <strong style="color: var(--text-main);">LinkedIn</strong>
+                        <p class="text-muted mb-0" style="font-size: 0.875rem;">Connect professionally</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="contact-social-item mb-3">
+                <a href="https://github.com/Angelica-Rees" target="_blank" class="d-flex align-items-center"
+                    style="text-decoration: none;">
+                    <div class="contact-icon-wrapper">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="ms-3" style="margin-left: 1rem;">
+                        <strong style="color: var(--text-main);">GitHub</strong>
+                        <p class="text-muted mb-0" style="font-size: 0.875rem;">Check out my code</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Column - Contact Form -->
+    <div class="col-md-5">
+        <div class="card p-4">
+            <!-- Form Icon Header -->
+            <div class="text-center mb-4">
+                <div class="contact-form-icon mx-auto">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h4 style="margin-top: 1rem; margin-bottom: 0.5rem;">Send a Message</h4>
+                <p class="text-muted" style="font-size: 0.9rem;">I'll get back to you as soon as I can.</p>
+            </div>
+
+            <!-- Contact Form -->
+            <form method="POST" action="{% url 'contact' %}">
+                {% csrf_token %}
+
+                <div class="form-group mb-3">
+                    <label for="name" class="form-label"
+                        style="font-weight: 500; margin-bottom: 0.5rem;">Subject</label>
+                    <input type="text" name="name" id="name" class="form-control contact-input"
+                        placeholder="What's this about?" required>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="message" class="form-label"
+                        style="font-weight: 500; margin-bottom: 0.5rem;">Message</label>
+                    <textarea name="message" id="message" class="form-control contact-input"
+                        placeholder="Write your message here..." rows="6" required></textarea>
+                </div>
+
+                <button class="btn btn-primary w-100" type="submit">
+                    <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i>
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
